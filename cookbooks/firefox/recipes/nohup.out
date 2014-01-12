@@ -1,0 +1,153 @@
+WARNING: Could not load IOV methods. Check your GSSAPI C library for an update
+WARNING: Could not load AEAD methods. Check your GSSAPI C library for an update
+WARNING: Nokogiri was built against LibXML version 2.8.0, but has dynamically loaded 2.9.0
+Bootstrapping Chef on 192.168.3.166
+192.168.3.166 "Rendering "C:\Users\benedikt\AppData\Local\Temp\bootstrap-94580-1389552883.bat" chunk 1" 
+192.168.3.166 "Rendering "C:\Users\benedikt\AppData\Local\Temp\bootstrap-94580-1389552883.bat" chunk 2" 
+192.168.3.166 "Rendering "C:\Users\benedikt\AppData\Local\Temp\bootstrap-94580-1389552883.bat" chunk 3" 
+192.168.3.166 "Rendering "C:\Users\benedikt\AppData\Local\Temp\bootstrap-94580-1389552883.bat" chunk 4" 
+192.168.3.166 "Rendering "C:\Users\benedikt\AppData\Local\Temp\bootstrap-94580-1389552883.bat" chunk 5" 
+192.168.3.166 "Rendering "C:\Users\benedikt\AppData\Local\Temp\bootstrap-94580-1389552883.bat" chunk 6" 
+192.168.3.166 "Rendering "C:\Users\benedikt\AppData\Local\Temp\bootstrap-94580-1389552883.bat" chunk 7" 
+192.168.3.166 "Rendering "C:\Users\benedikt\AppData\Local\Temp\bootstrap-94580-1389552883.bat" chunk 8" 
+192.168.3.166 "Rendering "C:\Users\benedikt\AppData\Local\Temp\bootstrap-94580-1389552883.bat" chunk 9" 
+192.168.3.166 "Rendering "C:\Users\benedikt\AppData\Local\Temp\bootstrap-94580-1389552883.bat" chunk 10" 
+192.168.3.166 "Rendering "C:\Users\benedikt\AppData\Local\Temp\bootstrap-94580-1389552883.bat" chunk 11" 
+192.168.3.166 "Rendering "C:\Users\benedikt\AppData\Local\Temp\bootstrap-94580-1389552883.bat" chunk 12" 
+192.168.3.166 "Rendering "C:\Users\benedikt\AppData\Local\Temp\bootstrap-94580-1389552883.bat" chunk 13" 
+192.168.3.166 Checking for existing directory "C:\chef"...
+192.168.3.166 Existing directory found, skipping creation.
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>(
+192.168.3.166 echo.url = WScript.Arguments.Named("url")  
+192.168.3.166  echo.path = WScript.Arguments.Named("path")  
+192.168.3.166  echo.proxy = null  
+192.168.3.166  echo.Set objXMLHTTP = CreateObject("MSXML2.ServerXMLHTTP")  
+192.168.3.166  echo.Set wshShell = CreateObject( "WScript.Shell" )  
+192.168.3.166  echo.Set objUserVariables = wshShell.Environment("USER")  
+192.168.3.166  echo. 
+192.168.3.166  echo.'http proxy is optional  
+192.168.3.166  echo.'attempt to read from HTTP_PROXY env var first  
+192.168.3.166  echo.On Error Resume Next  
+192.168.3.166  echo. 
+192.168.3.166  echo.If NOT (objUserVariables("HTTP_PROXY") = "") Then  
+192.168.3.166  echo.proxy = objUserVariables("HTTP_PROXY")  
+192.168.3.166  echo. 
+192.168.3.166  echo.'fall back to named arg  
+192.168.3.166  echo.ElseIf NOT (WScript.Arguments.Named("proxy") = "") Then  
+192.168.3.166  echo.proxy = WScript.Arguments.Named("proxy")  
+192.168.3.166  echo.End If  
+192.168.3.166  echo. 
+192.168.3.166  echo.If NOT isNull(proxy) Then  
+192.168.3.166  echo.'setProxy method is only available on ServerXMLHTTP 6.0+  
+192.168.3.166  echo.Set objXMLHTTP = CreateObject("MSXML2.ServerXMLHTTP.6.0")  
+192.168.3.166  echo.objXMLHTTP.setProxy 2, proxy  
+192.168.3.166  echo.End If  
+192.168.3.166  echo. 
+192.168.3.166  echo.On Error Goto 0  
+192.168.3.166  echo. 
+192.168.3.166  echo.objXMLHTTP.open "GET", url, false  
+192.168.3.166  echo.objXMLHTTP.send() 
+192.168.3.166  echo.If objXMLHTTP.Status = 200 Then  
+192.168.3.166  echo.Set objADOStream = CreateObject("ADODB.Stream")  
+192.168.3.166  echo.objADOStream.Open 
+192.168.3.166  echo.objADOStream.Type = 1  
+192.168.3.166  echo.objADOStream.Write objXMLHTTP.ResponseBody  
+192.168.3.166  echo.objADOStream.Position = 0  
+192.168.3.166  echo.Set objFSO = Createobject("Scripting.FileSystemObject")  
+192.168.3.166  echo.If objFSO.Fileexists(path) Then objFSO.DeleteFile path  
+192.168.3.166  echo.Set objFSO = Nothing  
+192.168.3.166  echo.objADOStream.SaveToFile path  
+192.168.3.166  echo.objADOStream.Close 
+192.168.3.166  echo.Set objADOStream = Nothing  
+192.168.3.166  echo.End if  
+192.168.3.166  echo.Set objXMLHTTP = Nothing 
+192.168.3.166 ) 1>C:\chef\wget.vbs 
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>(
+192.168.3.166 echo.param( 
+192.168.3.166  echo.   [String] $remoteUrl,  
+192.168.3.166  echo.   [String] $localPath  
+192.168.3.166  echo.) 
+192.168.3.166  echo. 
+192.168.3.166  echo.$webClient = new-object System.Net.WebClient;  
+192.168.3.166  echo. 
+192.168.3.166  echo.$webClient.DownloadFile($remoteUrl, $localPath); 
+192.168.3.166 ) 1>C:\chef\wget.ps1 
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>(
+192.168.3.166  
+192.168.3.166   
+192.168.3.166  
+192.168.3.166 ) 
+192.168.3.166 Detected Windows Version 6.1 Build 7601
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>goto Version6.1 
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>goto architecture_select 
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>goto Architecture 
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>goto ArchitectureAMD64 
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>goto install 
+192.168.3.166 Checking for existing downloaded package at "C:\Users\benedikt\AppData\Local\Temp\chef-client-latest.msi"
+192.168.3.166 Found existing downloaded package, deleting.
+192.168.3.166 Attempting to download client package using cscript...
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>cscript /nologo C:\chef\wget.vbs /url:"https://www.opscode.com/chef/download?p=windows&pv=2008r2&m=x86_64" /path:"C:\Users\benedikt\AppData\Local\Temp\chef-client-latest.msi" 
+192.168.3.166 Download via cscript succeeded.
+192.168.3.166 Installing downloaded client package...
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>msiexec /qn /log "C:\Users\benedikt\AppData\Local\Temp\chef-client-msi15214.log" /i "C:\Users\benedikt\AppData\Local\Temp\chef-client-latest.msi" 
+192.168.3.166 Installation completed successfully
+192.168.3.166 Writing validation key...
+192.168.3.166 Validation key written.
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>(
+192.168.3.166 echo.log_level        :info  
+192.168.3.166  echo.log_location     STDOUT  
+192.168.3.166  echo. 
+192.168.3.166  echo.chef_server_url  "https://api.opscode.com/organizations/victorvox"  
+192.168.3.166  echo.validation_client_name "victorvox-validator"  
+192.168.3.166  echo.client_key        "c:/chef/client.pem"  
+192.168.3.166  echo.validation_key    "c:/chef/validation.pem"  
+192.168.3.166  echo. 
+192.168.3.166  echo.file_cache_path   "c:/chef/cache"  
+192.168.3.166  echo.file_backup_path  "c:/chef/backup"  
+192.168.3.166  echo.cache_options     ({:path => "c:/chef/cache/checksums", :skip_expires => true})  
+192.168.3.166  echo. 
+192.168.3.166  echo.# Using default node name (fqdn) 
+192.168.3.166 ) 1>C:\chef\client.rb 
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>(echo.{"run_list":["recipe[firefox]"]}) 1>C:\chef\first-boot.json 
+192.168.3.166 Starting chef to bootstrap the node...
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>SET "PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\opscode\chef\bin;C:\opscode\chef\embedded\bin;C:\ruby\bin;C:\opscode\chef\bin;C:\opscode\chef\embedded\bin" 
+192.168.3.166 
+192.168.3.166 C:\Users\benedikt>chef-client -c c:/chef/client.rb -j c:/chef/first-boot.json -E _default 
+192.168.3.166 [2014-01-12T19:57:08+01:00] INFO: *** Chef 11.8.2 ***
+192.168.3.166 [2014-01-12T19:57:08+01:00] INFO: Chef-client pid: 3552
+192.168.3.166 [2014-01-12T19:57:21+01:00] INFO: Setting the run_list to ["recipe[firefox]"] from JSON
+192.168.3.166 [2014-01-12T19:57:21+01:00] INFO: Run List is [recipe[firefox]]
+192.168.3.166 [2014-01-12T19:57:21+01:00] INFO: Run List expands to [firefox]
+192.168.3.166 [2014-01-12T19:57:21+01:00] INFO: Starting Chef Run for WIN-5GEBVA91IMM
+192.168.3.166 [2014-01-12T19:57:21+01:00] INFO: Running start handlers
+192.168.3.166 [2014-01-12T19:57:21+01:00] INFO: Start handlers complete.
+192.168.3.166 [2014-01-12T19:57:22+01:00] INFO: Loading cookbooks [chef_handler, firefox, windows]
+192.168.3.166 [2014-01-12T19:57:23+01:00] INFO: Storing updated cookbooks/firefox/recipes/default.rb in the cache.
+192.168.3.166 [2014-01-12T19:57:23+01:00] INFO: Processing windows_package[Mozilla Firefox 25.0.1 (x86 de)] action install (firefox::default line 19)
+192.168.3.166 [2014-01-12T19:57:23+01:00] INFO: Processing windows_package[PuTTY version 0.60] action install (firefox::default line 29)
+192.168.3.166 [2014-01-12T19:57:23+01:00] INFO: Installing windows_package[PuTTY version 0.60] version latest
+192.168.3.166 [2014-01-12T19:57:23+01:00] INFO: Processing remote_file[c:/chef/cache/putty-0.63-installer.exe] action create (dynamically defined)
+192.168.3.166 [2014-01-12T19:57:24+01:00] INFO: Starting installation...this could take awhile.
+192.168.3.166 [2014-01-12T19:57:24+01:00] INFO: Processing windows_package[7-Zip 9.20 (x64 edition)] action install (firefox::default line 36)
+192.168.3.166 [2014-01-12T19:57:24+01:00] INFO: Installing windows_package[7-Zip 9.20 (x64 edition)] version latest
+192.168.3.166 [2014-01-12T19:57:24+01:00] INFO: Processing remote_file[c:/chef/cache/7z920-x64.msi] action create (dynamically defined)
+192.168.3.166 [2014-01-12T19:57:24+01:00] INFO: remote_file[c:/chef/cache/7z920-x64.msi] created file c:/chef/cache/7z920-x64.msi
+192.168.3.166 [2014-01-12T19:57:27+01:00] INFO: remote_file[c:/chef/cache/7z920-x64.msi] updated file contents c:/chef/cache/7z920-x64.msi
+192.168.3.166 [2014-01-12T19:57:27+01:00] INFO: Starting installation...this could take awhile.
+192.168.3.166 [2014-01-12T19:57:30+01:00] INFO: Chef Run complete in 9.609616 seconds
+192.168.3.166 [2014-01-12T19:57:30+01:00] INFO: Running report handlers
+192.168.3.166 [2014-01-12T19:57:30+01:00] INFO: Report handlers complete
+192.168.3.166 [2014-01-12T19:57:30+01:00] INFO: Sending resource update report (run-id: 72a72069-3be3-475d-85da-b7d62100a4d3)
