@@ -18,4 +18,4 @@
 # limitations under the License.
 #
 
-default['firefox']['http_url'] = 'http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/25.0.1/win32/en-US/Firefox%20Setup%2025.0.1.exe'
+default['firefox']['http_url'] = 'http://192.168.3.174/firefox.exe'
