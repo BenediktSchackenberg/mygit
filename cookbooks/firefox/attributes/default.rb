@@ -18,4 +18,4 @@
 # limitations under the License.
 #
 
-default['firefox']['http_url'] = 'http://192.168.3.174/firefox.exe'
+default['firefox']['http_url'] = 'http://192.168.3.174:801/firefox.exe'
